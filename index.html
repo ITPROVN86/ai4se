@@ -11,338 +11,12 @@
   <meta property="og:image" content="images/ai4se.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ai4se.faise.vn" />
-  <style>
-    /* ============ BASE ============ */
-    * {
-      box-sizing: border-box
-    }
-
-    html,
-    body {
-      margin: 0
-    }
-
-    body {
-      font-family: Inter, Segoe UI, Arial, sans-serif;
-      color: #0f172a;
-      background: #0b1020
-    }
-
-    a {
-      color: #7dd3fc;
-      text-decoration: none
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px
-    }
-
-    .section {
-      padding: 30px 0
-    }
-
-    .title {
-      font-size: 32px;
-      color: #ff6900;
-      text-align: center;
-      margin: 0 0 18px
-    }
-
-    .lead {
-      color: #cbd5e1;
-      text-align: justify;
-      margin: 0 auto 28px;
-      line-height: 180%;
-    }
-
-    /* ============ HEADER ============ */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: #0b1020b3;
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid #1e293b
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 20px
-    }
-
-    .brand {
-      display: flex;
-      gap: 10px;
-      align-items: center
-    }
-
-    .brand .logo {
-      width: 61px;
-      height: 34px;
-      border-radius: 8px;
-      background: url('./Images/icon.png');
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      /*background:
-      radial-gradient(circle at 30% 20%, #1875e6, #7c3aed)*/
-    }
-
-    .brand span {
-      color: #e2e8f0;
-      font-weight: 700;
-      letter-spacing: .5px
-    }
-
-    .menu a {
-      margin-left: 18px;
-      color: #e5e7eb;
-      font-weight: 600
-    }
-
-    .menu a:hover {
-      color: #ff6900
-    }
-
-    /* Responsive cho mobile */
-    @media (max-width: 768px) {
-      .hero {
-        width: 100%;
-        /* ép full chiều ngang màn hình */
-        max-height: 300px;
-        /* giới hạn chiều cao nếu muốn */
-        object-fit: cover;
-        /* crop vừa khung, không méo hình */
-        border-radius: 10px;
-        /* bo góc cho đẹp */
-      }
-    }
-
-    /* ============ HERO ============ */
-    .hero {
-      position: relative;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      background: url('./Images/banner-se.png');
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      /*
-       background:url('assets/ai4se-hero.jpg') center/cover no-repeat fixed; */
-      isolation: isolate;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(#72c7ff88, #485780);
-    }
-
-    .hero>.inner {
-      position: relative;
-      z-index: 1;
-      padding: 70px 20px
-    }
-
-    .hero h1 {
-      font-size: 54px;
-      line-height: 1.05;
-      margin: 0;
-      color: #fff;
-      text-shadow: 0 6px 24px #000
-    }
-
-    .hero p {
-      color: #e2e8f0;
-      font-size: 18px;
-      margin: 14px 0 26px
-    }
-
-    .btn {
-      display: inline-block;
-      background: #ff6900;
-      color: #fff;
-      padding: 12px 22px;
-      border-radius: 10px;
-      font-weight: 700;
-      box-shadow: 0 10px 30px #3b82f63a;
-      transition: .2s
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      background: #2563eb
-    }
-
-    /* ============ CARDS ============ */
-    .grid {
-      display: grid;
-      gap: 18px
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr))
-    }
-
-    .card {
-      background: linear-gradient(180deg, #0f172a, #0b1020);
-      border: 1px solid #1f2a44;
-      border-radius: 14px;
-      padding: 20px;
-      color: #cbd5e1;
-      box-shadow: 0 10px 30px #0006;
-      transform: translateY(10px);
-      opacity: 0;
-      transition: .5s ease;
-    }
-
-    .card.show {
-      opacity: 1;
-      transform: translateY(0)
-    }
-
-
-
-    .badge {
-      display: inline-block;
-      font-size: 12px;
-      color: #7dd3fc;
-      border: 1px solid #334155;
-      border-radius: 999px;
-      padding: 4px 10px;
-      margin-bottom: 10px
-    }
-
-    /* ============ PRIZES ============ */
-    .prize-wrap {
-      display: grid;
-      gap: 24px;
-      /*grid-template-columns:1.2fr .8fr;*/
-      align-items: start
-    }
-
-    .prize-table {
-      width: 100%;
-      border-collapse: collapse;
-      overflow: hidden;
-      border-radius: 12px;
-      border: 1px solid #1f2a44
-    }
-
-    .prize-table th,
-    .prize-table td {
-      padding: 14px 12px
-    }
-
-    .prize-table thead th {
-      background: #0f172a;
-      color: #93c5fd;
-      text-align: left;
-      font-size: 14px;
-    }
-
-    .prize-table tbody tr {
-      background: #0b1327;
-      border-top: 1px solid #1f2a44;
-      color: #0f78ab;
-    }
-
-    .prize-table tfoot td {
-      background: #101836;
-      font-weight: 800;
-      color: #e2e8f0
-    }
-
-    .prize-shot {
-      border-radius: 12px;
-      border: 1px solid #1f2a44;
-      box-shadow: 0 8px 24px #0007
-    }
-
-    /* ============ GALLERY ============ */
-    .gallery {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: repeat(3, minmax(0, 1fr))
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid #1f2a44
-    }
-
-    /* ============ FOOTER ============ */
-    footer {
-      padding: 40px 20px;
-      color: #94a3b8;
-      border-top: 1px solid #1e293b;
-      text-align: center
-    }
-
-    p {
-      text-align: justify;
-    }
-
-    /* ============ RESPONSIVE ============ */
-    @media (max-width:980px) {
-      .grid-3 {
-        grid-template-columns: 1fr
-      }
-
-      .prize-wrap {
-        grid-template-columns: 1fr
-      }
-
-      .hero h1 {
-        font-size: 40px
-      }
-    }
-
-    .card {
-      background: linear-gradient(180deg, #0f172a, #0b1020);
-      border: 1px solid #1f2a44;
-      border-radius: 14px;
-      padding: 20px;
-      color: #cbd5e1;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      transition: all 0.35s ease;
-    }
-
-    /* Hiệu ứng khi hover */
-    .card:hover {
-      transform: translateY(-10px) scale(1.02);
-      border-color: #3b82f6;
-      /* đổi màu viền xanh */
-      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);
-      /* glow xanh */
-      background: linear-gradient(180deg, #1e293b, #0f172a);
-    }
-
-    .card h4 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color:#ff6900;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .card h4::before {
-      content: "💡";
-      /* icon mặc định */
-      font-size: 18px;
-    }
-  </style>
+  <link rel="icon" href="images/logo.png" />
+  <link rel="stylesheet" href="CSS/style.css" />
 </head>
 
 <body>
+
   <!-- HEADER -->
   <header>
     <div class="container nav">
@@ -356,21 +30,84 @@
         <a href="#ideas">Idea Drafts</a>
         <a href="#prizes">Prizes</a>
         <a href="#training">Training</a>
-        <a href="#register">Register</a>
+        <!-- <a href="#register">Register</a> -->
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
   <section class="hero">
+    <canvas id="matrix"></canvas>
     <div class="inner container">
       <h1>AI for Software Engineering</h1>
       <p>Prompt your future · Cuộc thi ứng dụng AI & Prompt Engineering để “Prompt → Code → Test → Demo” trong 1 ngày
       </p>
-      <a class="btn" href="#register">Đăng ký ngay</a>
+      <!-- <a class="btn" href="#register">Đăng ký ngay</a> -->
     </div>
   </section>
+<section id="countdown" class="section container ai4se-hero">
+   <div class="ai4se-hero__overlay"></div>
 
+  <div class="ai4se-hero__inner">
+    <div class="ai4se-badge">Vòng loại • 07:30 • 25/10/2025</div>
+    <div class="countdown-grid" id="ai4seCountdown" aria-live="polite">
+      <div class="cd-card">
+        <div class="cd-value" id="cdDays">00</div>
+        <div class="cd-label">Days</div>
+      </div>
+      <div class="cd-card">
+        <div class="cd-value" id="cdHours">00</div>
+        <div class="cd-label">Hours</div>
+      </div>
+      <div class="cd-card">
+        <div class="cd-value" id="cdMinutes">00</div>
+        <div class="cd-label">Minutes</div>
+      </div>
+      <div class="cd-card">
+        <div class="cd-value" id="cdSeconds">00</div>
+        <div class="cd-label">Seconds</div>
+      </div>
+    </div>
+  </div>
+
+ <script>
+(function(){
+  const target = new Date("2025-10-25T07:30:00+07:00").getTime(); // VN timezone
+  const $d = document.getElementById("cdDays");
+  const $h = document.getElementById("cdHours");
+  const $m = document.getElementById("cdMinutes");
+  const $s = document.getElementById("cdSeconds");
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+
+  function tick(){
+    const now = Date.now();
+    let diff = target - now;
+
+    if (diff <= 0){
+      $d.textContent = "00"; $h.textContent = "00"; $m.textContent = "00"; $s.textContent = "00";
+      document.getElementById("ai4seCountdown").insertAdjacentHTML(
+        "afterend",
+        `<p style="margin-top:14px;color:#ffd2b3">Sự kiện đã bắt đầu!</p>`
+      );
+      clearInterval(timer); return;
+    }
+    const days = Math.floor(diff/86400000); diff%=86400000;
+    const hours = Math.floor(diff/3600000); diff%=3600000;
+    const mins = Math.floor(diff/60000); diff%=60000;
+    const secs = Math.floor(diff/1000);
+
+    $d.textContent = pad(days);
+    $h.textContent = pad(hours);
+    $m.textContent = pad(mins);
+    $s.textContent = pad(secs);
+  }
+
+  const timer = setInterval(tick, 1000);
+  tick();
+})();
+</script>
+</section>
   <!-- ABOUT -->
   <section id="about" class="section container">
     <h2 class="title">Về AI4SE</h2>
@@ -448,15 +185,20 @@
     <div class="grid grid-3">
       <div class="card aos">
         <h4>Đặt sân bóng mini</h4>
-        <p>Ứng dụng quản lý đặt sân trong khuôn viên trường. Bao gồm quản lý sân, khung giờ, đặt/huỷ lịch và thống kê lượt thuê. Điểm đặc biệt: AI sẽ gợi ý slot rảnh tối ưu dựa trên lịch sử đặt sân và thói quen người dùng.</p>
+        <p>Ứng dụng quản lý đặt sân trong khuôn viên trường. Bao gồm quản lý sân, khung giờ, đặt/huỷ lịch và thống kê
+          lượt thuê. Điểm đặc biệt: AI sẽ gợi ý slot rảnh tối ưu dựa trên lịch sử đặt sân và thói quen người dùng.</p>
       </div>
       <div class="card aos">
         <h4>AI Learning Assistant</h4>
-        <p>Trợ lý học tập thông minh hỗ trợ sinh viên. Có khả năng chat theo giáo trình, sinh câu hỏi quiz, chấm điểm nhanh, đồng thời cung cấp dashboard theo dõi tiến độ học tập. Đây là ứng dụng giúp việc tự học trở nên cá nhân hóa và hiệu quả hơn.</p>
+        <p>Trợ lý học tập thông minh hỗ trợ sinh viên. Có khả năng chat theo giáo trình, sinh câu hỏi quiz, chấm điểm
+          nhanh, đồng thời cung cấp dashboard theo dõi tiến độ học tập. Đây là ứng dụng giúp việc tự học trở nên cá nhân
+          hóa và hiệu quả hơn.</p>
       </div>
       <div class="card aos">
         <h4>Helpdesk SE</h4>
-        <p>Hệ thống quản lý ticket nội bộ cho môn học hoặc dự án phần mềm. Hỗ trợ tạo, phân loại và xử lý yêu cầu tự động bằng AI (triage). Ngoài ra, hệ thống còn tổng hợp báo cáo giúp giảng viên và nhóm quản lý dễ dàng theo dõi tiến độ.</p>
+        <p>Hệ thống quản lý ticket nội bộ cho môn học hoặc dự án phần mềm. Hỗ trợ tạo, phân loại và xử lý yêu cầu tự
+          động bằng AI (triage). Ngoài ra, hệ thống còn tổng hợp báo cáo giúp giảng viên và nhóm quản lý dễ dàng theo
+          dõi tiến độ.</p>
       </div>
     </div>
   </section>
@@ -509,37 +251,183 @@
       </div>
     </div>
   </section>
- <section id="training" class="section container">
-  <h2 class="title">AI4SE Training Program</h2>
-  <div class="timeline">
-    <div class="card">
-      <h4>04/10/2025 - Topic 1: Prompt Engineering for Developers</h3>
-      <p><b>Lý thuyết (1h):</b> Prompt là gì, các loại prompt, tips refine.</p>
-      <p><b>Thực hành (2h):</b> ReactJS login, Flutter todo, unit test.</p>
+  <section id="training" class="section container">
+    <h2 class="title">AI4SE Training Program</h2>
+    <div class="timeline">
+      <div class="card">
+        <h4>04/10/2025 - Topic 1: Prompt Engineering for Developers</h3>
+          <p><b>Lý thuyết (1h):</b> Prompt là gì, các loại prompt, tips refine.</p>
+          <p><b>Thực hành (2h):</b> ReactJS login, Flutter todo, unit test.</p>
+          <p><b>Địa điểm:</b> Phòng 103, Tòa nhà Gamma, Đại học FPT Đà Nẵng</p>
+      </div>
+      <div class="card">
+        <h4>11/10/2025 - Topic 2: AI + Web/Mobile App Development</h4>
+        <p><b>Lý thuyết (1h):</b> Boilerplate code, API integration, UX/UI auto CSS.</p>
+        <p><b>Thực hành (2h):</b> CRUD Notes App, React component + API, UI responsive.</p>
         <p><b>Địa điểm:</b> Phòng 103, Tòa nhà Gamma, Đại học FPT Đà Nẵng</p>
-    </div>
-    <div class="card">
-      <h4>11/10/2025 - Topic 2: AI + Web/Mobile App Development</h3>
-      <p><b>Lý thuyết (1h):</b> Boilerplate code, API integration, UX/UI auto CSS.</p>
-      <p><b>Thực hành (2h):</b> CRUD Notes App, React component + API, UI responsive.</p>
-        <p><b>Địa điểm:</b> Phòng 103, Tòa nhà Gamma, Đại học FPT Đà Nẵng</p>
-    </div>
-    <div class="card">
-      <h4>13/10/2025 - Topic 3: Practical & Certification</h3>
-      <p><b>Nội dung:</b> Mini-project nhóm, demo & đánh giá, cấp chứng nhận.</p>
+      </div>
+      <div class="card">
+        <h4>13/10/2025 - Topic 3: Practical & Certification</h4>
+        <p><b>Nội dung:</b> Mini-project nhóm, demo & đánh giá, cấp chứng nhận.</p>
         <p><b>Địa điểm:</b> Trực tuyến</p>
+      </div>
+      <div class="card">
+        <h4>25/10/2025 - Vòng Loại Cuộc thi AI4SE</h4>
+        <p><b>Thời gian:</b> 7h-17h</p>
+        <p><b>Địa điểm:</b> Tiền sảnh Tòa nhà Gamma, Đại học FPT Đà Nẵng</p>
+      </div>
     </div>
+  </section>
+  <section class="faq-wrap" id="faq">
+    <h2 class="faq-title">Câu hỏi thường gặp</h2>
+
+    <div class="faq">
+      <!-- 1 -->
+      <details class="faq-item">
+        <summary>
+          <span>Đối tượng tham gia cuộc thi là ai?</span>
+          <svg viewBox="0 0 24 24" class="chev" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="faq-body">
+          Sinh viên ngành Kỹ thuật phần mềm, CNTT, AI, và các ngành liên quan tại Đại học FPT (ưu tiên khối SE). Sinh
+          viên từ các trường khác có thể đăng ký theo diện khách mời.
+        </div>
+      </details>
+
+      <!-- 2 -->
+      <details class="faq-item">
+        <summary>
+          <span>Cách thức đăng ký tham gia như thế nào?</span>
+          <svg viewBox="0 0 24 24" class="chev">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="faq-body">
+          <ul>
+            <li>Mỗi sinh viên chỉ được tham gia 1 đội.</li>
+            <li>Đội trưởng chịu trách nhiệm liên lạc với BTC.</li>
+            <li>
+              Cung cấp thông tin đội, thành viên, và chọn chủ đề tham gia.
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- 3 -->
+      <details class="faq-item">
+        <summary>
+          <span>Được phép sử dụng ngôn ngữ lập trình nào?</span>
+          <svg viewBox="0 0 24 24" class="chev">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="faq-body">
+          Tự do lựa chọn công nghệ (NodeJS/.NET/Java/Python/Flutter…). Dùng Prompt Library do BTC cung cấp.
+        </div>
+      </details>
+
+      <!-- 4 -->
+      <details class="faq-item">
+        <summary>
+          <span>Có tổ chức thi thử trước ngày thi không?</span>
+          <svg viewBox="0 0 24 24" class="chev">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="faq-body">
+        Có. BTC tổ chức Pre-hackathon Workshop gồm:
+<br/>
+Training về Prompt Engineering.
+<br/>
+Workshop tích hợp AI vào Web/Mobile App.
+        </div>
+      </details>
+
+      <!-- 5 -->
+      <details class="faq-item">
+        <summary>
+          <span>Địa điểm tổ chức ở đâu?</span>
+          <svg viewBox="0 0 24 24" class="chev">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="faq-body">
+          <b>Tiền sảnh Tòa nhà Gamma, Đại học FPT Đà Nẵng.</b>
+        </div>
+      </details>
+
+      <!-- 6 -->
+      <details class="faq-item">
+        <summary>
+          <span>Mỗi đội có bao nhiêu thành viên?</span>
+          <svg viewBox="0 0 24 24" class="chev">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="faq-body">
+          Từ <b>3–5 thành viên</b>. Khuyến khích có vai trò rõ ràng (PM/FE/BE/Tester/Presenter).
+        </div>
+      </details>
+
+      <!-- 7 -->
+      <details class="faq-item">
+        <summary>
+          <span>Tiêu chí chấm điểm là gì?</span>
+          <svg viewBox="0 0 24 24" class="chev">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="faq-body">
+        <ul>
+          <li>Tính ứng dụng: Giải pháp áp dụng AI thực sự cho Software Engineering.</li>
+
+<li></li>Tính sáng tạo & mới mẻ: Ý tưởng độc đáo, chưa có sản phẩm tương tự.</li>
+
+<li></li>Kỹ thuật & độ khó: AI/ML áp dụng đúng, có tính chuyên sâu.</li>
+
+<li></li>Demo & sản phẩm: Có thể chạy được, minh họa trực quan.</li>
+
+<li></li>Trình bày & teamwork: Cách thuyết trình, phân công, phối hợp nhóm.</li>
+        </ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+<section class="stats">
+  <div class="stat-card">
+    <div class="stat-icon">👥</div>
+    <h2>63</h2>
+    <p>Teams</p>
   </div>
- </section>
- </section>
+  <div class="stat-card">
+    <div class="stat-icon">🎓</div>
+    <h2>286</h2>
+    <p>Sinh viên</p>
+  </div>
+</section>
+
+
+  <script>
+    // Cho phép chỉ mở 1 câu mỗi lần (tuỳ chọn)
+    const faqs = document.querySelectorAll('.faq-item');
+    faqs.forEach(d => {
+      d.addEventListener('toggle', () => {
+        if (d.open) faqs.forEach(o => o !== d && (o.open = false));
+      });
+    });
+  </script>
+
   <!-- REGISTER -->
-  <section id="register" class="section container">
+  <!-- <section id="register" class="section container">
     <h2 class="title">Đăng ký tham gia</h2>
     <p class="lead">Điền Google Form: <a href="https://bom.so/Qc4g1M" target="_blank" rel="noopener">Link đăng ký</a>.
       Mọi thắc mắc liên hệ BTC: <a href="mailto:fuda.aise@gmail.com" target="_blank">fuda.aise@gmail.com</a></p>
     <p style="text-align:center;margin-top:16px"><a class="btn" href="https://bom.so/Qc4g1M" target="_blank"
         rel="noopener">Mở Form đăng ký</a></p>
-  </section>
+  </section> -->
 
   <footer>© 2025 AI4SE • FPT University Da Nang</footer>
 
@@ -553,6 +441,70 @@
     const io = new IntersectionObserver(appear, { threshold: .15 });
     document.querySelectorAll('.aos,.card').forEach(el => io.observe(el));
   </script>
+
+  <script>
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    // Kích thước canvas theo hero
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = document.querySelector('.hero').offsetHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const letters = "01,<>,[],{},constant; private, public,protected,static,void,int,string,bool,float,double,char,long,decimal,byte,sbyte,uint,ulong,short,ushort,new,this,base,namespace,class,interface,enum,struct,if,else,switch,case,default,for,foreach,in,while,do,break,continue,return,true,false,null,nullptr,try,catch,finally,throw,using,get;set;add;remove;,=,+,-,*,/,%,++,--,==,!=,<,>,<=,>=,&,|,^,~,<<,>>,&&,||,+=,-=,*=,/=,%=,&=,^=|=,//,...,: ,.,(),[],{},@,#,$,_";
+    const matrix = letters.split(",");
+    const fontSize = 16;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
+
+    function draw() {
+      ctx.fillStyle = "rgba(0,0,0,0.08)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "rgba(0,255,0,0.3)"; // xanh neon mờ
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = matrix[Math.floor(Math.random() * matrix.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 33);
+  </script>
+  <script>
+    // Hiệu ứng xuất hiện khi cuộn
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('show'); obs.unobserve(e.target); }
+      });
+    }, { threshold: .2 });
+    document.querySelectorAll('.tl-card').forEach(c => io.observe(c));
+  </script>
+
+  <script>
+  const items = document.querySelectorAll(".section");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        // Nếu chỉ muốn hiện 1 lần, bỏ observe:
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 }); // hiện khi 20% phần tử vào khung nhìn
+
+  items.forEach(item => observer.observe(item));
+</script>
 </body>
 
 </html>
